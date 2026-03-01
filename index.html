@@ -1,0 +1,1154 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duy & Thương - Wedding Invitation</title>
+
+    <!-- Google Fonts - Elegant Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c2c2c;
+            --secondary-color: #8b7355;
+            --accent-color: #d4af37;
+            --light-bg: #fafaf8;
+            --white: #ffffff;
+            --text-color: #4a4a4a;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Fade-in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-delay-1 { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
+        .fade-in-delay-3 { animation-delay: 0.6s; }
+        .fade-in-delay-4 { animation-delay: 0.8s; }
+
+        /* Hero Section - Full Width Image */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            padding: 40px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding: 20px 0;
+            margin-top: 40px;
+            display: inline-block;
+        }
+
+        /* Scroll Down Arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            transition: opacity 0.5s ease;
+            opacity: 1;
+        }
+
+        .scroll-down::after {
+            content: '↓';
+            color: var(--white);
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Section */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+            margin-bottom: 60px;
+        }
+
+        .divider {
+            width: 100px;
+            height: 1px;
+            background: var(--accent-color);
+            margin: 30px auto;
+        }
+
+        /* Section Backgrounds - Fixed for each section */
+        .guest-invitation::before,
+        .event-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0;
+            z-index: 0;
+            filter: blur(10px);
+        }
+
+        /* Guest Invitation - Horizontal reveal (2 bên nhập vào giữa) */
+        .guest-invitation::before {
+            transition: opacity 1.8s ease, clip-path 1.8s ease;
+            clip-path: inset(0 50% 0 50%);
+        }
+
+        .guest-invitation.bg-visible::before {
+            opacity: 0.25;
+            clip-path: inset(0 0 0 0);
+        }
+
+        /* Event Details - Vertical reveal (từ dưới lên) */
+        .event-details::before {
+            transition: opacity 1.8s ease, clip-path 1.8s ease;
+            clip-path: inset(100% 0 0 0);
+        }
+
+        .event-details.bg-visible::before {
+            opacity: 0.25;
+            clip-path: inset(0 0 0 0);
+        }
+
+        .guest-invitation::before {
+            background-image: url('assets/images/gallery-1.jpg');
+        }
+
+        .event-details::before {
+            background-image: url('assets/images/gallery-2.jpg');
+        }
+
+        .guest-invitation,
+        .event-details {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guest-invitation .container,
+        .event-details .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Compact Countdown Timer */
+        .countdown-compact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 500px;
+            background: var(--light-bg);
+            border-radius: 8px;
+        }
+
+        .countdown-compact .countdown-item {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-compact .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-compact .countdown-label {
+            font-family: 'Lora', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-color);
+            margin-top: 5px;
+        }
+
+        /* Event Details */
+        .event-details {
+            background: var(--white);
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .event-card {
+            text-align: center;
+            padding: 40px 30px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .event-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .event-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .event-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .event-time {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        /* Map Button */
+        .map-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Lora', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 1px solid var(--primary-color);
+        }
+
+        .map-button:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            background: var(--light-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive: 1 column on mobile */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .music-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        .music-toggle.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+            50% { box-shadow: 0 5px 30px rgba(212, 175, 55, 0.5); }
+        }
+
+        /* Guest Invitation Section */
+        .guest-invitation {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .invitation-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guest-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-style: italic;
+            color: var(--secondary-color);
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .invitation-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: var(--text-color);
+            margin: 30px 0;
+        }
+
+        .guest-details {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--light-bg);
+            border-left: 3px solid var(--accent-color);
+            text-align: left;
+        }
+
+        .guest-details p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .guest-details strong {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .guest-details .table-info {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--accent-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            margin-top: 10px;
+        }
+
+        .guest-error {
+            padding: 40px;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .guest-error h3 {
+            font-family: 'Playfair Display', serif;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .guest-error p {
+            color: #856404;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        footer p {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+        }
+
+        .footer-heart {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+
+        /* QR Code Section in Footer */
+        .qr-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .qr-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .qr-item {
+            text-align: center;
+        }
+
+        .qr-item img {
+            width: 260px;
+            height: 260px;
+            border-radius: 12px;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .qr-label {
+            margin-top: 15px;
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .qr-name {
+            margin-top: 5px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            /* Countdown Compact - Mobile */
+            .countdown-compact {
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .countdown-compact .countdown-item {
+                min-width: 70px;
+            }
+
+            .countdown-compact .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .countdown-compact .countdown-label {
+                font-size: 0.7rem;
+            }
+
+            /* Event Grid - Mobile */
+            .event-grid {
+                gap: 40px;
+                grid-template-columns: 1fr;
+            }
+
+            .event-card {
+                padding: 30px 20px;
+            }
+
+            /* Gallery - Mobile */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            /* QR Codes - Mobile */
+            .qr-container {
+                gap: 40px;
+            }
+
+            .qr-item img {
+                width: 200px;
+                height: 200px;
+                padding: 12px;
+            }
+
+            .qr-section h3 {
+                font-size: 1.5rem;
+            }
+
+            /* Guest Invitation - Mobile */
+            .invitation-text {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+
+            .guest-details {
+                padding: 20px;
+            }
+
+            .guest-details p {
+                font-size: 1rem;
+            }
+
+            /* Music Player - Mobile */
+            .music-player {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .music-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Tablet Responsive */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .event-grid {
+                gap: 50px;
+            }
+
+            .gallery-grid {
+                gap: 20px;
+            }
+        }
+
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-text">Duy & Thương</div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+            ♪
+        </button>
+        <audio id="bgMusic" loop>
+            <!-- Replace with your music file -->
+            <source src="assets/music/wedding-song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="assets/images/hero.jpg" alt="Duy & Thương" class="hero-image">
+        <div class="hero-content fade-in">
+            <h1 class="hero-title fade-in-delay-1">Duy & Thương</h1>
+            <p class="hero-subtitle fade-in-delay-2">We're Getting Married</p>
+            <div class="hero-date fade-in-delay-3">15 . 03 . 2026</div>
+        </div>
+        <div class="scroll-down"></div>
+    </section>
+
+    <!-- Guest Invitation Section -->
+    <section class="guest-invitation" id="invitation">
+        <div class="container">
+            <div class="invitation-content fade-in" id="invitationContent">
+                <!-- Default content khi không có guest ID -->
+                <div id="defaultInvitation">
+                    <h2 class="section-title">Kính mời</h2>
+                    <p class="section-subtitle">Quý khách</p>
+                    <div class="divider"></div>
+                    <p class="invitation-text">
+                        Chúng tôi rất vui mừng được mời bạn đến tham dự<br>
+                        lễ cưới của chúng tôi
+                    </p>
+                </div>
+
+                <!-- Guest specific content -->
+                <div id="guestInvitation" style="display: none;">
+                    <h2 class="section-title">Kính mời</h2>
+                    <p class="guest-name" id="guestName"></p>
+                    <div class="divider"></div>
+                    <p class="invitation-text" id="invitationText"></p>
+                    <div class="guest-details" id="guestDetails"></div>
+                </div>
+
+                <div class="invitation-footer fade-in" style="margin-top: 40px;">
+                    <p style="font-style: italic; color: var(--secondary-color);">
+                        Sự hiện diện của bạn là niềm hạnh phúc lớn nhất đối với chúng tôi
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="event-details" id="event">
+        <div class="container">
+            <h2 class="section-title fade-in">Event Details</h2>
+            <p class="section-subtitle fade-in">Save the date</p>
+            <div class="divider fade-in"></div>
+
+            <!-- Compact Countdown -->
+            <div class="countdown-compact fade-in" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Ngày</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Giờ</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Phút</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Giây</span>
+                </div>
+            </div>
+
+            <div class="event-grid">
+                <div class="event-card fade-in">
+                    <div class="event-icon">💒</div>
+                    <h3>Lễ Cưới</h3>
+                    <p class="event-time">15:30 - 14/03/2026</p>
+                    <p>Giáo xứ Hiển Linh - Dòng Tên<br>19 Đ. số 5, Phường Linh Trung, Thủ Đức, TP.HCM</p>
+                    <a href="https://www.google.com/maps/place/Church+of+the+Epiphany/@10.8606816,106.7619099,18z/data=!4m10!1m2!2m1!1zTmjDoCB0aOG7nSBHacOhbyBY4bupIEhp4buDbiBMaW5o!3m6!1s0x3175279b5ae8c2cf:0xa0736784385d411f!8m2!3d10.8609867!4d106.7640528!15sCiFOaMOgIHRo4budIEdpw6FvIFjhu6kgSGnhu4NuIExpbmiSAQ9jYXRob2xpY19jaHVyY2jgAQA!16s%2Fg%2F1vfp13jy?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                       target="_blank"
+                       class="map-button">
+                        Mở Google Maps
+                    </a>
+                </div>
+
+                <div class="event-card fade-in fade-in-delay-2">
+                    <div class="event-icon">🥂</div>
+                    <h3>Tiệc Cưới</h3>
+                    <p class="event-time">12:00 - 15/03/2026</p>
+                    <p>Minh Thuy Wedding Restaurant<br>1 Alexandre de Rhodes, P, Thủ Đức, TP.HCM</p>
+                    <a href="https://www.google.com/maps/place/Wedding+Restaurant+Minh+Thuy/@10.840147,106.764791,17z/data=!3m1!4b1!4m6!3m5!1s0x317527a87fcdb123:0xaeb846db7ee2f4ff!8m2!3d10.840147!4d106.7673659!16s%2Fg%2F11gzt7_qr?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                       target="_blank"
+                       class="map-button">
+                        Mở Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Moments</h2>
+            <p class="section-subtitle fade-in">Captured memories</p>
+            <div class="divider fade-in"></div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="assets/images/gallery-3.jpg" alt="Wedding photo 3" loading="lazy">
+                </div>
+                <div class="gallery-item fade-in fade-in-delay-1">
+                    <img src="assets/images/gallery-4.jpg" alt="Wedding photo 4" loading="lazy">
+                </div>
+                <div class="gallery-item fade-in fade-in-delay-2">
+                    <img src="assets/images/gallery-5.jpg" alt="Wedding photo 5" loading="lazy">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="assets/images/gallery-6.jpg" alt="Wedding photo 6" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- QR Code Section -->
+            <div class="qr-section fade-in">
+                <h3>Mừng Cưới</h3>
+                <p style="opacity: 0.8; margin-bottom: 20px;">
+                    Nếu không thể tham dự, bạn có thể gửi lời chúc qua:
+                </p>
+                <div class="qr-container">
+                    <div class="qr-item">
+                        <img src="assets/images/qr-groom.jpg" alt="QR Code Chú rể" loading="lazy">
+                        <div class="qr-label">Chú rể</div>
+                        <div class="qr-name">Phan Anh Duy</div>
+                    </div>
+                    <div class="qr-item">
+                        <img src="assets/images/qr-bride.jpg" alt="QR Code Cô dâu" loading="lazy">
+                        <div class="qr-label">Cô dâu</div>
+                        <div class="qr-name">Lê Thị Thương</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Message -->
+            <p style="margin-top: 60px;">
+                Thank you for being part of our special day
+            </p>
+            <p style="margin-top: 20px;">
+                Duy <span class="footer-heart">♥</span> Thương
+            </p>
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.6;">
+                15 . 03 . 2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Configuration
+        const WEDDING_DATE = new Date('2026-03-15T18:00:00').getTime();
+
+        // Loading overlay
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Music player
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        let musicPlaying = false;
+
+        musicToggle.addEventListener('click', () => {
+            if (musicPlaying) {
+                bgMusic.pause();
+                musicToggle.classList.remove('playing');
+                musicToggle.textContent = '♪';
+            } else {
+                bgMusic.play();
+                musicToggle.classList.add('playing');
+                musicToggle.textContent = '❚❚';
+            }
+            musicPlaying = !musicPlaying;
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = WEDDING_DATE - now;
+
+            if (distance < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Scroll animations for fade-in elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Hide scroll-down arrow when user scrolls
+        const scrollDownArrow = document.querySelector('.scroll-down');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // If scrolled down more than 100px, hide the arrow
+            if (scrollTop > 100) {
+                scrollDownArrow.style.opacity = '0';
+                scrollDownArrow.style.pointerEvents = 'none';
+            } else {
+                scrollDownArrow.style.opacity = '1';
+                scrollDownArrow.style.pointerEvents = 'auto';
+            }
+
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+
+        // Fade in section backgrounds on scroll (with reverse on scroll up)
+        const bgSections = document.querySelectorAll('.guest-invitation, .event-details');
+
+        const bgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('bg-visible');
+                } else {
+                    entry.target.classList.remove('bg-visible');
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px'
+        });
+
+        bgSections.forEach(section => {
+            bgObserver.observe(section);
+        });
+
+        // Embedded guest data - Base64 encoded for obfuscation
+        const ENCODED_GUEST_DATA = 'ewogICJldmVudCI6IHsKICAgICJ0aXRsZSI6ICLEkMOhbSBjxrDhu5tpIER1eSAmIFRoxrDGoW5nIiwKICAgICJkYXRlIjogIjIwMjYtMDMtMTUiLAogICAgInRpbWUiOiAiMTk6MDAiLAogICAgInZlbnVlIjogIk1pbmggVGh1eSBXZWRkaW5nIFJlc3RhdXJhbnQsIFRQLkhDTSIKICB9LAogICJndWVzdHMiOiBbCiAgICB7CiAgICAgICJpZCI6ICJHMDAxIiwKICAgICAgIm5hbWUiOiAiTmd1eeG7hW4gVsSDbiBBIiwKICAgICAgInBsdXNPbmUiOiBmYWxzZQogICAgfSwKICAgIHsKICAgICAgImlkIjogIkcwMDIiLAogICAgICAibmFtZSI6ICJUcuG6p24gVGjhu4sgQiIsCiAgICAgICJwbHVzT25lIjogdHJ1ZQogICAgfSwKICAgIHsKICAgICAgImlkIjogIkcwMDMiLAogICAgICAibmFtZSI6ICJMw6ogVsSDbiBDIiwKICAgICAgInBsdXNPbmUiOiBmYWxzZQogICAgfSwKICAgIHsKICAgICAgImlkIjogIkcwMDQiLAogICAgICAibmFtZSI6ICJQaOG6oW0gVGjhu4sgRCIsCiAgICAgICJwbHVzT25lIjogdHJ1ZQogICAgfSwKICAgIHsKICAgICAgImlkIjogIkcwMDUiLAogICAgICAibmFtZSI6ICJIb8OgbmcgVsSDbiBFIiwKICAgICAgInBsdXNPbmUiOiBmYWxzZQogICAgfSwKICAgIHsKICAgICAgImlkIjogIkcwMDYiLAogICAgICAibmFtZSI6ICJIb8OgbmcgVsSDbiBGIiwKICAgICAgInBsdXNPbmUiOiBmYWxzZQogICAgfQogIF0sCiAgIm1ldGFkYXRhIjogewogICAgInRvdGFsR3Vlc3RzIjogNSwKICAgICJsYXN0VXBkYXRlZCI6ICIyMDI1LTAxLTE5VDAwOjAwOjAwWiIKICB9Cn0K';
+
+        // Get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Decode and get guest data (UTF-8 safe)
+        async function fetchGuestData() {
+            try {
+                // Decode Base64 to binary string
+                const binaryString = atob(ENCODED_GUEST_DATA);
+
+                // Convert binary string to UTF-8
+                const bytes = new Uint8Array(binaryString.length);
+                for (let i = 0; i < binaryString.length; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+
+                // Decode UTF-8 bytes to string
+                const decoder = new TextDecoder('utf-8');
+                const decoded = decoder.decode(bytes);
+
+                // Parse JSON
+                const data = JSON.parse(decoded);
+                console.log('Guest data loaded (obfuscated)');
+                return data;
+            } catch (error) {
+                console.error('Error decoding guest data:', error);
+                return null;
+            }
+        }
+
+        // Display guest invitation
+        async function displayGuestInvitation() {
+            const guestId = getUrlParameter('guest');
+
+            if (!guestId) {
+                // No guest ID - show default invitation
+                console.log('No guest ID provided - showing default invitation');
+                return;
+            }
+
+            console.log('Loading invitation for guest:', guestId);
+
+            // Fetch guest data
+            const data = await fetchGuestData();
+
+            if (!data || !data.guests) {
+                showGuestError('Không thể tải thông tin khách mời. Vui lòng thử lại sau.');
+                return;
+            }
+
+            // Find guest by ID
+            const guest = data.guests.find(g => g.id === guestId);
+
+            if (!guest) {
+                showGuestError(`Không tìm thấy thông tin khách mời với mã: ${guestId}`);
+                return;
+            }
+
+            // Display personalized invitation
+            showPersonalizedInvitation(guest, data);
+        }
+
+        // Show personalized invitation
+        function showPersonalizedInvitation(guest, data) {
+            const defaultInvitation = document.getElementById('defaultInvitation');
+            const guestInvitation = document.getElementById('guestInvitation');
+
+            // Hide default, show personalized
+            defaultInvitation.style.display = 'none';
+            guestInvitation.style.display = 'block';
+
+            // Set guest name
+            document.getElementById('guestName').textContent = guest.name;
+
+            // Set invitation text
+            const invitationText = document.getElementById('invitationText');
+            if (guest.plusOne) {
+                invitationText.innerHTML = `
+                    Chúng tôi rất vui mừng được mời bạn và người thân<br>
+                    đến tham dự lễ cưới của chúng tôi
+                `;
+            } else {
+                invitationText.innerHTML = `
+                    Chúng tôi rất vui mừng được mời bạn<br>
+                    đến tham dự lễ cưới của chúng tôi
+                `;
+            }
+
+            // Set guest details
+            const guestDetails = document.getElementById('guestDetails');
+            const tableInfo = data.tables ? data.tables.find(t => t.number === guest.table) : null;
+
+            guestDetails.innerHTML = `
+                ${guest.plusOne ? '<p><strong>Bạn có thể mang theo:</strong> 1 người thân</p>' : ''}
+                ${data.event ? `
+                    <p style="margin-top: 20px; ${guest.plusOne ? 'padding-top: 20px; border-top: 1px solid var(--border-color);' : ''}">
+                        <strong>Thời gian:</strong> ${data.event.time} - ${formatDate(data.event.date)}<br>
+                        <strong>Địa điểm:</strong> ${data.event.venue}
+                    </p>
+                ` : ''}
+            `;
+
+            console.log('Displayed personalized invitation for:', guest.name);
+        }
+
+        // Show error message
+        function showGuestError(message) {
+            const defaultInvitation = document.getElementById('defaultInvitation');
+            const guestInvitation = document.getElementById('guestInvitation');
+
+            defaultInvitation.style.display = 'none';
+            guestInvitation.style.display = 'block';
+
+            guestInvitation.innerHTML = `
+                <div class="guest-error">
+                    <h3>⚠️ Thông báo</h3>
+                    <p>${message}</p>
+                    <p style="margin-top: 15px;">Vui lòng liên hệ chủ tiệc để được hỗ trợ.</p>
+                </div>
+            `;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Load guest invitation on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            displayGuestInvitation();
+        });
+    </script>
+</body>
+</html>

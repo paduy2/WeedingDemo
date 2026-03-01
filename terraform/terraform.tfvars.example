@@ -1,0 +1,51 @@
+# Terraform Variables - Template File
+# Copy file này thành terraform.tfvars hoặc production.tfvars và điền giá trị thực
+
+# ============================================================================
+# REQUIRED VARIABLES - PHẢI ĐIỀN
+# ============================================================================
+
+# Domain name của bạn (đã tạo hosted zone trên Route53)
+domain_name = "duythuongwedding.click"
+
+# AWS region (gần VN nhất: ap-southeast-1)
+aws_region = "ap-southeast-1"
+
+
+# ============================================================================
+# OPTIONAL VARIABLES - Có thể bỏ qua (dùng default)
+# ============================================================================
+
+# Môi trường deploy
+# environment = "production"
+
+# Bật versioning cho S3 (để rollback nếu cần)
+# enable_versioning = false
+
+# CloudFront price class (PriceClass_100 rẻ nhất)
+# cloudfront_price_class = "PriceClass_100"
+
+# Cache TTL - thời gian CloudFront cache guests.json (giây)
+# cache_ttl = {
+#   min     = 0
+#   default = 300  # 5 phút
+#   max     = 600  # 10 phút
+# }
+
+
+# ============================================================================
+# VÍ DỤ CHO NHIỀU MÔI TRƯỜNG
+# ============================================================================
+
+# Production:
+# domain_name = "duythuongwedding.click"
+# environment = "production"
+
+# Staging:
+# domain_name = "staging.duythuongwedding.click"
+# environment = "staging"
+# cache_ttl = {
+#   min     = 0
+#   default = 60   # 1 phút - test nhanh hơn
+#   max     = 300
+# }

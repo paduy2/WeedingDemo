@@ -1,0 +1,83 @@
+# ============================================================================
+# WEDDING ASSETS - Ảnh/nhạc cá nhân
+# ============================================================================
+assets/images/*.jpg
+assets/images/*.jpeg
+assets/images/*.png
+assets/music/*.mp3
+assets/music/*.m4a
+assets/music/*.wav
+
+# CHỈ commit README files trong assets
+!assets/images/README.md
+!assets/music/README.md
+
+# Guest data & URLs - Sensitive information
+guests.json
+guest-urls.txt
+guest-urls.csv
+
+
+# ============================================================================
+# TERRAFORM - Infrastructure state & variables
+# ============================================================================
+
+# Terraform state files
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
+
+# Terraform variables - chứa sensitive data (domain, config)
+terraform/terraform.tfvars
+terraform/production.tfvars
+terraform/staging.tfvars
+terraform/development.tfvars
+terraform/*.auto.tfvars
+
+# CHỈ commit template
+!terraform/terraform.tfvars.example
+
+
+# ============================================================================
+# OS FILES
+# ============================================================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+
+# ============================================================================
+# EDITOR
+# ============================================================================
+.vscode/
+.idea/
+*.sublime-*
+
+
+# ============================================================================
+# TEMPORARY & BACKUP
+# ============================================================================
+*.tmp
+*.bak
+*.backup
+
+
+# ============================================================================
+# LOGS
+# ============================================================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# ============================================================================
+# ENVIRONMENT
+# ============================================================================
+.env
+.env.local
+.env.production
+.env.staging

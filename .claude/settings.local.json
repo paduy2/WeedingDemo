@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.deploy.ps1 -Command apply)",
+      "Bash(aws s3 ls:*)",
+      "Bash(aws cloudfront list-distributions:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
