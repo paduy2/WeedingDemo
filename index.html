@@ -758,7 +758,7 @@
 
                 <div class="invitation-footer fade-in" style="margin-top: 40px;">
                     <p style="font-style: italic; color: var(--secondary-color);">
-                        Sự hiện diện của bạn là niềm hạnh phúc lớn nhất đối với chúng tôi
+                        Sự hiện diện của quý khách là niềm hạnh phúc lớn nhất đối với chúng tôi
                     </p>
                 </div>
             </div>
@@ -795,7 +795,7 @@
             <div class="event-grid">
                 <div class="event-card fade-in">
                     <div class="event-icon">💒</div>
-                    <h3>Lễ Cưới</h3>
+                    <h3>Thánh Lễ Hôn Phối</h3>
                     <p class="event-time">15:30 - 14/03/2026</p>
                     <p>Giáo xứ Hiển Linh - Dòng Tên<br>19 Đ. số 5, Phường Linh Trung, Thủ Đức, TP.HCM</p>
                     <a href="https://www.google.com/maps/place/Church+of+the+Epiphany/@10.8606816,106.7619099,18z/data=!4m10!1m2!2m1!1zTmjDoCB0aOG7nSBHacOhbyBY4bupIEhp4buDbiBMaW5o!3m6!1s0x3175279b5ae8c2cf:0xa0736784385d411f!8m2!3d10.8609867!4d106.7640528!15sCiFOaMOgIHRo4budIEdpw6FvIFjhu6kgSGnhu4NuIExpbmiSAQ9jYXRob2xpY19jaHVyY2jgAQA!16s%2Fg%2F1vfp13jy?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
@@ -851,7 +851,7 @@
             <div class="qr-section fade-in">
                 <h3>Mừng Cưới</h3>
                 <p style="opacity: 0.8; margin-bottom: 20px;">
-                    Nếu không thể tham dự, bạn có thể gửi lời chúc qua:
+                    Nếu không thể tham dự, quý khách có thể gửi lời chúc qua:
                 </p>
                 <div class="qr-container">
                     <div class="qr-item">
@@ -1078,12 +1078,12 @@
             const invitationText = document.getElementById('invitationText');
             if (guest.plusOne) {
                 invitationText.innerHTML = `
-                    Chúng tôi rất vui mừng được mời bạn và người thân<br>
+                    Chúng tôi rất vui mừng được mời quý khách và người thân<br>
                     đến tham dự lễ cưới của chúng tôi
                 `;
             } else {
                 invitationText.innerHTML = `
-                    Chúng tôi rất vui mừng được mời bạn<br>
+                    Chúng tôi rất vui mừng được mời quý khách<br>
                     đến tham dự lễ cưới của chúng tôi
                 `;
             }
@@ -1093,7 +1093,7 @@
             const tableInfo = data.tables ? data.tables.find(t => t.number === guest.table) : null;
 
             guestDetails.innerHTML = `
-                ${guest.plusOne ? '<p><strong>Bạn có thể mang theo:</strong> 1 người thân</p>' : ''}
+                ${guest.plusOne ? '<p><strong>quý khách có thể mang theo:</strong> 1 người thân</p>' : ''}
                 ${data.event ? `
                     <p style="margin-top: 20px; ${guest.plusOne ? 'padding-top: 20px; border-top: 1px solid var(--border-color);' : ''}">
                         <strong>Thời gian:</strong> ${data.event.time} - ${formatDate(data.event.date)}<br>
